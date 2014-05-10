@@ -1,9 +1,10 @@
 NICKEL = "nickel"
+DIME = "dime"
 
 class VendingMachine:
 
   def __init__(self):
-    self.valid_coins = {NICKEL : .05}
+    self.valid_coins = {NICKEL : .05, DIME : 0.1}
     self.coins = []
   
   def accept(self, coin):

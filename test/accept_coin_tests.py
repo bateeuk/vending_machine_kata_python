@@ -12,3 +12,8 @@ class AcceptCoinTests(unittest.TestCase):
         machine.accept(vending_machine.NICKEL)
         self.assertEquals("0.05", machine.display())
 
+    def test_when_dime_entered_then_ten_cents_is_diplayed(self):
+        machine = vending_machine.VendingMachine()
+        machine.accept(vending_machine.DIME)
+        self.assertEquals("0.10", machine.display())
+
