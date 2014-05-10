@@ -17,3 +17,8 @@ class AcceptCoinTests(unittest.TestCase):
         machine.accept(vending_machine.DIME)
         self.assertEquals("0.10", machine.display())
 
+    def test_when_quarter_entered_then_twenty_five_cents_is_displayed(self):
+        machine = vending_machine.VendingMachine()
+        machine.accept(vending_machine.QUARTER)
+        self.assertEquals("0.25", machine.display())
+
