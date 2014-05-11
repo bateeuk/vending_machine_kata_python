@@ -39,10 +39,10 @@ class VendingMachine:
     return "INSERT COIN"
 
   def display_with_selected_product(self, total):
-      return "PRICE %s" % self.format_amount(self.products[self.selected_product])
+    return "PRICE %s" % self.format_amount(self.products[self.selected_product])
 
   def format_amount(self, amount):
-      return "%s" % "{:.2f}".format(amount)
+    return "%s" % "{:.2f}".format(amount)
 
   def check_return_slot(self):
     return self.invalid_coins
@@ -51,4 +51,4 @@ class VendingMachine:
     self.invalid_coins = []
 
   def select_product(self, product):
-      self.selected_product = product
+    self.selected_product = product
