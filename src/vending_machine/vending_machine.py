@@ -26,12 +26,17 @@ class VendingMachine:
 
   def display(self):
     total_coins = sum(self.coins)
-    
+    message = self.build_message(total_coins)
+    self.selected_product = None
+
+    return message
+
+  def build_message(self, total_coins):
     if self.selected_product:
         return self.display_with_selected_product()
     else:
         return self.display_without_selected_product(total_coins)
-    
+
   def display_without_selected_product(self, total):
     if (total > 0.0):
       return self.format_amount(total)
