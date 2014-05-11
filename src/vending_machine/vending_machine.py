@@ -33,7 +33,7 @@ class VendingMachine:
 
   def build_message(self, total_coins):
     if self.selected_product:
-        return self.display_with_selected_product()
+        return self.display_with_selected_product(total_coins)
     else:
         return self.display_without_selected_product(total_coins)
 
@@ -43,8 +43,11 @@ class VendingMachine:
 
     return "INSERT COIN"
 
-  def display_with_selected_product(self):
-    return "PRICE %s" % self.format_amount(self.products[self.selected_product])
+  def display_with_selected_product(self, total):
+    if (total == self.products[self.selected_product]):
+        return "THANK YOU"
+    else:
+        return "PRICE %s" % self.format_amount(self.products[self.selected_product])
 
   def format_amount(self, amount):
     return "%s" % "{:.2f}".format(amount)

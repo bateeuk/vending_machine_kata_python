@@ -33,3 +33,10 @@ class SelectProductTests(unittest.TestCase):
     self.machine.display()
 
     self.assertEquals("0.25", self.machine.display())
+
+  def test_given_enough_money_accepted_when_product_selected_then_display_shows_THANK_YOU(self):
+    self.machine.accept(vending_machine.QUARTER)
+    self.machine.accept(vending_machine.QUARTER)
+    self.machine.select_product(vending_machine.CHIPS)
+    
+    self.assertEquals("THANK YOU", self.machine.display())
