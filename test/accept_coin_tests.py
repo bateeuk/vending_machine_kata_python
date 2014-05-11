@@ -29,3 +29,8 @@ class AcceptCoinTests(unittest.TestCase):
         self.machine.accept(vending_machine.NICKEL)
         self.machine.accept("bad penny")
         self.assertEquals("0.05", self.machine.display())
+
+    def test_given_multiple_coins_when_total_is_displayed_then_total_is_the_sum_of_coins(self):
+        self.machine.accept(vending_machine.NICKEL)
+        self.machine.accept(vending_machine.QUARTER)
+        self.assertEquals("0.30", self.machine.display())
