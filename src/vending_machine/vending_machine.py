@@ -7,12 +7,13 @@ QUARTER = "quarter"
 ''' Valid products '''
 CANDY = "candy"
 CHIPS = "chips"
+COLA = "cola"
 
 class VendingMachine:
 
   def __init__(self):
     self.valid_coins = {NICKEL : .05, DIME : 0.1, QUARTER : 0.25}
-    self.products = {CANDY : 0.65, CHIPS : 0.50}
+    self.products = {CANDY : 0.65, CHIPS : 0.50, COLA : 1.00}
     self.coins = []
     self.invalid_coins = []
     self.selected_product = None
