@@ -24,3 +24,8 @@ class AcceptCoinTests(unittest.TestCase):
     def test_given_only_an_invalid_coin_when_total_is_displayed_then_invalid_message_is_shown(self):
         self.machine.accept("bad penny")
         self.assertEquals("INSERT COIN", self.machine.display())
+
+    def test_given_valid_coin_when_invalid_coin_is_accepted_then_total_is_not_updated(self):
+        self.machine.accept(vending_machine.NICKEL)
+        self.machine.accept("bad penny")
+        self.assertEquals("0.05", self.machine.display())
