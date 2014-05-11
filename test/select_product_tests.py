@@ -23,7 +23,13 @@ class SelectProductTests(unittest.TestCase):
 
   def test_given_no_money_accepted_and_product_selected_when_display_called_twice_then_second_display_shows_INSERT_COINS(self):
     self.machine.select_product(vending_machine.COLA)
-
     self.machine.display()
 
     self.assertEquals("INSERT COIN", self.machine.display())
+
+  def test_given_money_accepted_and_product_selected_when_display_called_twice_then_second_display_shows_PRICE_and_amount(self):
+    self.machine.accept(vending_machine.QUARTER)
+    self.machine.select_product(vending_machine.COLA)
+    self.machine.display()
+
+    self.assertEquals("0.25", self.machine.display())
