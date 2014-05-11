@@ -6,14 +6,16 @@ QUARTER = "quarter"
 
 ''' Valid products '''
 CANDY = "candy"
+CHIPS = "chips"
 
 class VendingMachine:
 
   def __init__(self):
     self.valid_coins = {NICKEL : .05, DIME : 0.1, QUARTER : 0.25}
+    self.products = {CANDY : 0.65, CHIPS : 0.50}
     self.coins = []
     self.invalid_coins = []
-    self.product_selected = False
+    self.selected_product = None
   
   def accept(self, coin):
     if (self.valid_coins.has_key(coin)):
@@ -24,19 +26,22 @@ class VendingMachine:
   def display(self):
     total_coins = sum(self.coins)
     
-    if self.product_selected:
-        return self.display_with_product_selected(total_coins)
+    if self.selected_product:
+        return self.display_with_selected_product(total_coins)
     else:
-        return self.display_without_product_selected(total_coins)
+        return self.display_without_selected_product(total_coins)
     
-  def display_without_product_selected(self, total):
+  def display_without_selected_product(self, total):
     if (total > 0.0):
-      return "%s" % "{:.2f}".format(total)
+      return self.format_amount(total)
 
     return "INSERT COIN"
 
-  def display_with_product_selected(self, total):
-      return "PRICE 0.65"
+  def display_with_selected_product(self, total):
+      return "PRICE %s" % self.format_amount(self.products[self.selected_product])
+
+  def format_amount(self, amount):
+      return "%s" % "{:.2f}".format(amount)
 
   def check_return_slot(self):
     return self.invalid_coins
@@ -45,4 +50,4 @@ class VendingMachine:
     self.invalid_coins = []
 
   def select_product(self, product):
-      self.product_selected = True
+      self.selected_product = product
