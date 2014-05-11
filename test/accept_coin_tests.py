@@ -34,3 +34,8 @@ class AcceptCoinTests(unittest.TestCase):
         self.machine.accept(vending_machine.NICKEL)
         self.machine.accept(vending_machine.QUARTER)
         self.assertEquals("0.30", self.machine.display())
+
+    def test_given_an_invalid_coin_when_the_return_slot_is_checked_then_the_invalid_coin_is_in_the_slot(self):
+        bad_penny = "bad penny"
+        self.machine.accept(bad_penny)
+        self.assertTrue(bad_penny in self.machine.check_coin_slot())
