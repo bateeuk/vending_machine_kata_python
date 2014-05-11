@@ -22,5 +22,5 @@ class VendingMachine:
 
     return "INSERT COIN"
 
-  def check_coin_slot(self):
+  def check_return_slot(self):
     return self.invalid_coins
