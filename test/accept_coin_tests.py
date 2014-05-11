@@ -54,3 +54,11 @@ class AcceptCoinTests(unittest.TestCase):
         self.machine.accept(canadian_quarter)
         
         self.assertTrue(set([bad_penny, canadian_quarter]).issubset(set(self.machine.check_return_slot())))
+
+    def test_given_coins_in_return_slot_when_return_slot_is_cleared_then_no_coins_are_in_the_return_slot(self):
+        bad_penny = "bad_penny"
+        self.machine.accept(bad_penny)
+
+        self.machine.clear_return_slot()
+
+        self.assertEqual([], self.machine.check_return_slot())

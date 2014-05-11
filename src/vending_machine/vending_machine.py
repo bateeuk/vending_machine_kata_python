@@ -24,3 +24,6 @@ class VendingMachine:
 
   def check_return_slot(self):
     return self.invalid_coins
+
+  def clear_return_slot(self):
+    self.invalid_coins = []
