@@ -9,7 +9,7 @@ class VendingMachine:
     self.coins = []
   
   def accept(self, coin):
-    if (self.valid_coins[coin]):
+    if (self.valid_coins.has_key(coin)):
       self.coins.append(self.valid_coins[coin])
 
   def display(self):
